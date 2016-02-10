@@ -197,7 +197,7 @@ class Formulario {
         
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
-        $atributos ['validar'] = 'required,minSize[1],maxSize[10]';
+        $atributos ['validar'] = 'required,minSize[1],maxSize[10],onlyNumberSp';
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -230,7 +230,7 @@ class Formulario {
         
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
-        $atributos ['validar'] = 'required,minSize[1],maxSize[10]';
+        $atributos ['validar'] = 'required,minSize[1],maxSize[10], onlyNumberSp';
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -263,7 +263,7 @@ class Formulario {
         
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
-        $atributos ['validar'] = 'required,minSize[1],maxSize[10]';
+        $atributos ['validar'] = 'required,minSize[1],maxSize[10],onlyNumberSp';
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -327,7 +327,7 @@ class Formulario {
         
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
-        $atributos ['validar'] = 'required,minSize[1],maxSize[10]';
+        $atributos ['validar'] = 'required,minSize[1],maxSize[10],onlyNumberSp';
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -380,10 +380,57 @@ class Formulario {
 
         // ------------------Fin Division para los botones-------------------------
         echo $this->miFormulario->division ( "fin" );
-        echo $this->miFormulario->marcoAgrupacion ( 'fin' );
+       
         // ------------------- SECCION: Paso de variables ------------------------------------------------
      
-        
+       
+			unset ( $atributos );
+			$atributos ["id"] = "disenoCan";
+			$atributos ["estilo"] = "col-md-8";
+			echo $this->miFormulario->division ( "inicio", $atributos );
+			{
+			
+			}
+			echo $this->miFormulario->division ( "fin" );
+			
+			unset ( $atributos );
+			$atributos ["id"] = "camposDinamicosCont";
+			$atributos ["estilo"] = "col-md-8";
+			echo $this->miFormulario->division ( "inicio", $atributos );
+			{
+				unset ( $atributos );
+				$atributos ["id"] = "camposDinamicos";
+				$atributos ["estilo"] = "col-md-12";
+				echo $this->miFormulario->division ( "inicio", $atributos );
+				{
+				
+				}
+				echo $this->miFormulario->division ( "fin" );
+				
+			}
+			echo $this->miFormulario->division ( "fin" );
+			
+			unset ( $atributos );
+			$atributos ["id"] = "opcionesCamposDinamicos";
+			$atributos ["estilo"] = "col-md-4";
+			echo $this->miFormulario->division ( "inicio", $atributos );
+			{
+				
+				unset ( $atributos );
+				$atributos ["id"] = "blocBotn";
+				$atributos ["estilo"] = "col-md-12";
+				echo $this->miFormulario->division ( "inicio", $atributos );
+				{
+					echo "<center>";
+					echo "<input type=\"button\" id=\"btAdd\" value=\"Añadir Campo\" class=\"btn btn-success btn-block\" />";
+					echo "<input type=\"button\" id=\"btRemove\" value=\"Eliminar Campo\" class=\"btn btn-danger btn-block\" />";
+					echo "<input type=\"button\" id=\"btRemoveAll\" value=\"Eliminar Todo\" class=\"btn btn-warning btn-block\" /><br />";
+					echo "</center>";
+				}
+				echo $this->miFormulario->division ( "fin" );
+				unset($atributos);
+                        }
+              echo $this->miFormulario->marcoAgrupacion ( 'fin' );   
         
        
         /**

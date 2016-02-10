@@ -59,4 +59,91 @@ $urlFinal17 = $url . $cadena17;
 	        
 		
 	    });
+            
+            
+            
+ 
+//***********************************************************************************************************
+//***********************************************************************************************************
+
+//Codigo AGREGAR y QUITAR Campos Dinamicos
+
+var limite = 20; //Se define el Limite de Paneles de Condiciones que se pueden Generar
+				 //No requiere que se cambie en otro lugar
+
+				 
+var iCnt = 0;
+var numId = 0;
+ 
+// Crear un elemento div añadiendo estilos CSS
+var container = $(document.createElement('div')).css({
+	padding: '5px'
+});
+
+$(container).attr('class', 'col-md-12')
+$(container).attr('id', 'pushDina')
+
+$( document ).ready(function() {
+	if($('#<?php echo $this->campoSeguro('estadoPagina')?>').val() == 'modificarCondiciones'){
+		var cantidad = $('#<?php echo $this->campoSeguro('cantidadCargaCond')?>').val();
+		$("#<?php echo $this->campoSeguro('cantidadCondicionesConcepto') ?>").val(cantidad)
+
+		var entonces = $('#<?php echo $this->campoSeguro('cargaCondEntonces')?>').val();
+		var cadenasEntonces = entonces.split("|");
+
+		var si = $('#<?php echo $this->campoSeguro('cargaCondSi')?>').val();
+		var cadenasSi = si.split("|");
+		
+		var indice = 0;
+		
+		while (iCnt < cantidad) {
+			 
+			iCnt = iCnt + 1;
+	 
+			// Añadir elementos Dinamicos en el DOM
+			
+			$(container).append('<fieldset id=panel'+iCnt+' class="ui-widget ui-widget-content">'+
+					'<legend class="ui-state-default ui-corner-all"> CONDICIÓN #'+iCnt+'</legend>'+
+					'<div>'+
+						'<div id=lab1'+iCnt+' class="col-md-2">'+
+							'<label> Si </label> ' + 
+						'</div>'+
+						'<input type=text class="input" id=tb1' + iCnt + ' size="80"  maxlength="500" value="' + cadenasSi[indice] + '" />'+
+					'</div>'+
+					'<div>'+
+						'<div id=lab2'+iCnt+' class="col-md-2">'+
+							'<label> Entonces </label> ' + 
+						'</div>'+
+						'<input type=text class="input" id=tb2' + iCnt + ' size="80"  maxlength="500" value="' + cadenasEntonces[indice] + '" />'+
+					'</div>'+ 
+					'</fieldset>');
+			
+			$('#camposDinamicos').after(container);
+			$('#sel1'+iCnt).width(120);
+			$('#sel1'+iCnt).select2();
+			
+			$('#sel2'+iCnt).width(120);
+			$('#sel2'+iCnt).select2();
+            
+           
+
+	        indice++;
+	   
+		}
+		
+	}				 
+});
+
+				 
+
+        
+        
+        
+	
+        
+});
+//Funciones de arrastre apara dinamicos
+//
+//	 
+           
 </script>
