@@ -37,6 +37,7 @@ class FormProcessor {
             'descripcion' => $_REQUEST ['descripcion'],
             'ley' => $_REQUEST ['ley'],
             'valor' => $_REQUEST ['valor'],
+            'categoria' => $_REQUEST ['categoria'],
            
         );
       

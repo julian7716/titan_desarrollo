@@ -170,7 +170,8 @@ class Sql extends \Sql {
                
                 $cadenaSql .= 'valor,';
                 
-                $cadenaSql .= 'estado';
+                $cadenaSql .= 'estado,';
+                $cadenaSql .= 'categoria';
                 $cadenaSql .= ') ';
                 $cadenaSql .= 'VALUES ';
                 $cadenaSql .= '( ';
@@ -187,7 +188,9 @@ class Sql extends \Sql {
                 
                
                
-                $cadenaSql .= '\'' . 'Activo' . '\' ';
+                $cadenaSql .= '\'' . 'Activo' . '\', ';
+                  $cadenaSql .= $variable ['categoria'] ;
+                
                 $cadenaSql .= ') ';
 		
 				break;  
