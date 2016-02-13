@@ -20,7 +20,8 @@ $("#<?php echo $this->campoSeguro('ley')?>").select2();
 $('#<?php echo $this->campoSeguro('fdpCiudad')?>').width(200); 
 $("#<?php echo $this->campoSeguro('fdpCiudad')?>").select2();
 
-  
+  $('#<?php echo $this->campoSeguro('categoria')?>').width(200); 
+$("#<?php echo $this->campoSeguro('categoria')?>").select2();
 
 
 

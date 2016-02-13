@@ -321,7 +321,16 @@ class Sql extends \Sql {
 				$cadenaSql .= 'parametro.ley_decreto_norma ';
 				
 				break;
-               		
+       case 'buscarCategoria' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_categoria as ID, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= ' parametro.categoria_parametro';
+				
+				break;
+               		        		
 			case 'buscarDepartamentoAjax' :
 				
 				$cadenaSql = 'SELECT ';
