@@ -181,7 +181,8 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . $variable ['descripcion']  . '\', ';
                 $cadenaSql .= $variable ['ley'] . ', ';
                 $cadenaSql .= $variable ['valor'] . ', ';
-                 
+                
+               
                
                 
              
@@ -192,7 +193,7 @@ class Sql extends \Sql {
                   $cadenaSql .= $variable ['categoria'] ;
                 
                 $cadenaSql .= ') ';
-		
+		 $cadenaSql .= "RETURNING  id; ";
 				break;  
             
             case 'insertarRegistro' :
@@ -437,7 +438,22 @@ class Sql extends \Sql {
                 $cadenaSql .= $variable ['fdpCiudad'] . '';
                 $cadenaSql .= ') ';
 				break;  
+                             case 'insertarLeyesParametro' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'parametro.ldnxparametro';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'id_ldn,';
+				$cadenaSql .= 'id';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= $variable ['id_ley'] . ', ';
+				$cadenaSql .= $variable ['concepto'];
+				$cadenaSql .= '); ';
+				break;
+				
         }
+       
         
         return $cadenaSql;
     
