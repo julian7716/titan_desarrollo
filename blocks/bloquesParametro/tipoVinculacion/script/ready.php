@@ -16,3 +16,7 @@ $('#datepicker').datepicker({
 
 $('#<?php echo $this->campoSeguro('naturaleza')?>').width(250); 
 $("#<?php echo $this->campoSeguro('naturaleza')?>").select2();
+
+
+$('#<?php echo $this->campoSeguro('ley')?>').width(250); 
+$("#<?php echo $this->campoSeguro('ley')?>").select2();

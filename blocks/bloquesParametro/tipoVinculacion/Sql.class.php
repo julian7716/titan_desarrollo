@@ -82,7 +82,15 @@ class Sql extends \Sql {
                 $cadenaSql .= 'FROM ';
                 $cadenaSql .= 'parametro.tipo_vinculacion';
                 break;
-        
+        case 'buscarLey' ://Provisionalmente solo Departamentos de Colombia
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_ldn as ID, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'parametro.ley_decreto_norma ';
+				
+				break;
           
              case "registrarTipoVinculacion" :
 				$cadenaSql=" INSERT INTO parametro.tipo_vinculacion";
