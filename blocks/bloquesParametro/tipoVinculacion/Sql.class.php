@@ -107,20 +107,49 @@ class Sql extends \Sql {
 				$cadenaSql.=" nombre,";
 				$cadenaSql.=" descripcion,";
 				$cadenaSql.=" naturaleza,";
-				$cadenaSql.=" reglamentacion,";
+				
 				$cadenaSql.=" estado";
 				$cadenaSql.=" )";
 				$cadenaSql.=" VALUES";
 				$cadenaSql.=" (";
 			
-				$cadenaSql.=" '" . $_REQUEST['nombre']. "',";
-				$cadenaSql.=" '" . $_REQUEST['descripcion']. "',";
-				$cadenaSql.=" '" . $_REQUEST['naturaleza']. "',";
-				$cadenaSql.=" '" . $_REQUEST['reglamentacion']. "',";
+				$cadenaSql.=" '" . $variable['nombre']. "',";
+				$cadenaSql.=" '" . $variable['descripcion']. "',";
+				$cadenaSql.=" '" . $variable['naturaleza']. "',";
+				
 				$cadenaSql.=" 'Activo'";
-				$cadenaSql.=" );";
+				$cadenaSql.=" ) ";
+                                $cadenaSql .= "RETURNING  id; ";
 				break;  
-            
+                            
+             case 'insertarLeyesTipoVinculacion' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'parametro.ldnxtipo_vinculacion';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'id_ldn,';
+				$cadenaSql .= 'id';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= $variable ['id_ley'] . ', ';
+				$cadenaSql .= $variable ['tipo_vinculacion'];
+				$cadenaSql .= '); ';
+				break;
+		case 'insertarRubrosTipoVinculacion' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'parametro.rubro_tipo_vinculacion';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'rub_identificador,';
+				$cadenaSql .= 'id';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= $variable ['id_rubro'] . ', ';
+				$cadenaSql .= $variable ['tipo_vinculacion'];
+				$cadenaSql .= '); ';
+				break;
+					
+        
             case 'insertarRegistro' :
                 $cadenaSql = 'INSERT INTO ';
                 $cadenaSql .= 'parametro.cargo ';

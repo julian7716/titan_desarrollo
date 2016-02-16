@@ -25,27 +25,76 @@ class FormProcessor {
     function procesarFormulario() {    
 
         //Aquí va la lógica de procesamiento
-      if(isset($_REQUEST['naturaleza'])){
-                    switch($_REQUEST ['naturaleza']){
+      if(isset($_REQUEST['naturaleza1'])){
+                    switch($_REQUEST ['naturaleza1']){
                            case 1 :
-					$_REQUEST ['naturaleza']='Temporal';
+					$_REQUEST ['naturaleza1']='Temporal';
 			   break;
                        
                            case 2 :
-					$_REQUEST ['naturaleza']='Indefinido';
+					$_REQUEST ['naturaleza1']='Indefinido';
 			   break;
                     }
                 }
-        $conexion = 'estructura';
+                
+                  $datos = array(
+            'nombre' => $_REQUEST ['nombre'],
+           
+            'descripcion' => $_REQUEST ['descripcion'],
+            
+            'naturaleza' => $_REQUEST ['naturaleza1'],
+          
+           
+        );
+                  
+        
+       $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB ($conexion );
-        
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("registrarTipoVinculacion");
+   $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("registrarTipoVinculacion", $datos);
 
+    $resultado=   $primerRecursoDB->ejecutarAcceso( $atributos ['cadena_sql'], "busqueda", $datos, "registrarTipoVinculacion");
    
-    $resultado=  $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         
+                $arrayLeyes = explode(",", $_REQUEST['leyRegistros']);
+        $count = 0;
+        
+        while($count < count($arrayLeyes)){
+        	
+        	$datosLeyesConcepto = array(
+        			'id_ley' => $arrayLeyes[$count],
+        			'tipo_vinculacion' => $resultado[0][0]
+        	);
+        	
+        	$atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarLeyesTipoVinculacion",$datosLeyesConcepto);
+        	
+                $resultado1=$primerRecursoDB->ejecutarAcceso($atributos ['cadena_sql'], "acceso");//********************************
+        	
  
-   if (!empty($resultado)) {
+        	$count++;
+        
+        }
+        
+  $arrayRubros = explode(",", $_REQUEST['rubrosRegistros']);
+        $count = 0;
+        
+        while($count < count($arrayLeyes)){
+        	
+        	$datosLeyesConcepto = array(
+        			'id_rubro' => $arrayLeyes[$count],
+        			'tipo_vinculacion' => $resultado[0][0]
+        	);
+        	
+        	$atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarRubrosTipoVinculacion",$datosLeyesConcepto);
+        	
+                $resultado2=$primerRecursoDB->ejecutarAcceso($atributos ['cadena_sql'], "acceso");//********************************
+        	
+ 
+        	$count++;
+        
+        }
+        
+       
+   if (!empty($resultado)&&!empty($resultado1)&&!empty($resultado2)) {
             Redireccionador::redireccionar('inserto');
             exit();
         } else {

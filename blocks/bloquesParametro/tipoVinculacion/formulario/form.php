@@ -1,5 +1,5 @@
 <?php 
- namespace bloquesParametro\cajaDeCompensacion\formulario;
+ namespace bloquesParametro\tipoVinculacion\formulario;
 
 
 
