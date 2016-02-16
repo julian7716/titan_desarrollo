@@ -91,7 +91,15 @@ class Sql extends \Sql {
 				$cadenaSql .= 'parametro.ley_decreto_norma ';
 				
 				break;
-          
+          case 'buscarRubro' ://Provisionalmente solo Departamentos de Colombia
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'rub_identificador as ID, ';
+				$cadenaSql .= 'rub_nombre_rubro as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.rubro ';
+				
+				break;
              case "registrarTipoVinculacion" :
 				$cadenaSql=" INSERT INTO parametro.tipo_vinculacion";
 				$cadenaSql.=" (";

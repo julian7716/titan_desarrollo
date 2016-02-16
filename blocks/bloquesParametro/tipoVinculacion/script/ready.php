@@ -20,3 +20,7 @@ $("#<?php echo $this->campoSeguro('naturaleza')?>").select2();
 
 $('#<?php echo $this->campoSeguro('ley')?>').width(250); 
 $("#<?php echo $this->campoSeguro('ley')?>").select2();
+
+
+$('#<?php echo $this->campoSeguro('rubro')?>').width(250); 
+$("#<?php echo $this->campoSeguro('rubro')?>").select2();
