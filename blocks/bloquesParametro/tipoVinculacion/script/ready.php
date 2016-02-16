@@ -24,3 +24,8 @@ $("#<?php echo $this->campoSeguro('ley')?>").select2();
 
 $('#<?php echo $this->campoSeguro('rubro')?>').width(250); 
 $("#<?php echo $this->campoSeguro('rubro')?>").select2();
+
+
+$('#<?php echo $this->campoSeguro('tipoLiquidacion')?>').width(250); 
+$("#<?php echo $this->campoSeguro('tipoLiquidacion')?>").select2();
+
