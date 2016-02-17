@@ -13,7 +13,7 @@ $estilo[$indice++]="jquery.dataTables_themeroller.css";
 $estilo[$indice++]="jquery-ui.min.css";
 $estilo[$indice++]="jquery-ui.css";
 $estilo[$indice++]="timepicker.css";
-
+$estilo[$indice++]="select2.css";
 $estilo[$indice++]="bootstrap-theme.css";
 $estilo[$indice++]="bootstrap-theme.min.css";
 $estilo[$indice++]="bootstrap.css";

@@ -120,7 +120,7 @@ class Formulario {
 	        $atributos ['dobleLinea'] = false;
 	        $atributos ['tabIndex'] = $tab;
 	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-	        
+	         $atributos ['anchoEtiqueta']=200;
 	        $atributos ['obligatorio'] = true;
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
@@ -233,7 +233,48 @@ class Formulario {
 	        
 	        // Aplica atributos globales al control
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
-	        echo $this->miFormulario->campoCuadroLista ( $atributos );  
+	        echo $this->miFormulario->campoCuadroLista ( $atributos ); 
+                
+                // ---------------- CONTROL: Select --------------------------------------------------------
+        $esteCampo = 'registroVinculacion';
+        $atributos['nombre'] = $esteCampo;
+        $atributos['id'] = $esteCampo;
+        $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+        $atributos ['anchoEtiqueta'] = 230;
+        $atributos['tab'] = $tab;
+        $atributos['seleccion'] = -1;
+        $atributos['evento'] = ' ';
+        $atributos['deshabilitado'] = false;
+        $atributos['limitar']= 50;
+        $atributos['tamanno']= 1;
+        $atributos['columnas']= 1;
+         $atributos ['anchoEtiqueta']=200;	
+        $atributos ['obligatorio'] = false;
+        $atributos ['etiquetaObligatorio'] = false;
+        $atributos ['validar'] = 'required';
+        	
+        $matrizItems=array(
+        		array(1,'General'),
+        		array(2,'Especifico'),
+        		
+        			
+        );
+        $atributos['matrizItems'] = $matrizItems;
+        	
+        if (isset ( $_REQUEST [$esteCampo] )) {
+        	$atributos ['valor'] = $_REQUEST [$esteCampo];
+        } else {
+        	$atributos ['valor'] = '';
+        }
+        
+        $atributos ["titulo"] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+        $tab ++;
+        	
+        // Aplica atributos globales al control
+        $atributos = array_merge ( $atributos, $atributosGlobales );
+        echo $this->miFormulario->campoCuadroLista ( $atributos );
+        // --------------- FIN CONTROL : Select --------------------------------------------------
+        	
     // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
         $esteCampo = 'sede';
         $atributos ['id'] = $esteCampo;

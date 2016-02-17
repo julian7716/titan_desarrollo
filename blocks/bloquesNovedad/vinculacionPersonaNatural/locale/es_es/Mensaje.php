@@ -18,6 +18,9 @@ $this->idioma["regresar"]="Regresar ";
 //REGISTRO
 $this->idioma["fechaInicio"]="Fecha de inicio: " ;
 $this->idioma["fechaInicioTitulo"]="" ;
+$this->idioma["registroVinculacion"]="Registro de vinculación: " ;
+$this->idioma["registroVinculacionTitulo"]="" ;
+
 $this->idioma["estado"]="Estado: " ;
 $this->idioma["estadoTitulo"]="" ;
 $this->idioma["fechaFin"]="Fecha de fin: " ;
