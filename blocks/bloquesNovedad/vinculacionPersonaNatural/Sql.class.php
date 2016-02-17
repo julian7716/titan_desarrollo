@@ -49,13 +49,24 @@ class Sql extends \Sql {
                 $cadenaSql .= 'FROM ';
                 $cadenaSql .= 'nomina.arl';
                 break;
-            case 'buscarTipoVinculacion':
+            case 'buscarTipoVinculacion1':
                 $cadenaSql = 'SELECT ';
                 $cadenaSql .= 'id as ID, ';
                 $cadenaSql .= 'nombre as NOMBRE ';
                 
                 $cadenaSql .= 'FROM ';
                 $cadenaSql .= 'parametro.tipo_vinculacion';
+                break;
+            
+            case 'buscarTipoVinculacion':
+                $cadenaSql = 'SELECT ';
+                $cadenaSql .= 'tipo_liquidacion as TIPOLIQUIDACION ';
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'parametro.tipo_vinculacion';
+                $cadenaSql .= ' WHERE ';
+                $cadenaSql .= 'id = ';
+                $cadenaSql .= $variable   .';';
+                
                 break;
             
             case 'buscarPersonaVinculada':
@@ -272,6 +283,7 @@ class Sql extends \Sql {
                
                 
                 $cadenaSql .= ') ';
+                $cadenaSql .= "RETURNING  id; ";
                 
                 break;
             

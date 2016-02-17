@@ -219,7 +219,7 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
 	        
-	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarTipoVinculacion" );
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarTipoVinculacion1" );
 	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 	        
 	        $atributos['matrizItems'] = $matrizItems;

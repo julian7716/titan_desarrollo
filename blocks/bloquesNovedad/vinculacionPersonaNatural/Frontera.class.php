@@ -85,6 +85,23 @@ class Frontera {
                                                                               
                                         include_once ($this->ruta . "/formulario/registrar.php");
 					break;
+                                    
+                                    case "opcion1":
+                                                                              
+                                        include_once ($this->ruta . "/formulario/opcion1.php");
+					break;
+                                    case "opcion2":
+                                                                              
+                                        include_once ($this->ruta . "/formulario/opcion2.php");
+					break;
+                                      case "opcion1.1":
+                                                                              
+                                        include_once ($this->ruta . "/formulario/opcion1.1.php");
+					break;
+                                    case "opcion2.1":
+                                                                              
+                                        include_once ($this->ruta . "/formulario/opcion2.1.php");
+					break;
                                 
         		}
 		}else{
